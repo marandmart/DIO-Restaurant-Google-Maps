@@ -99,6 +99,7 @@ export const MapContainer = (props) => {
     searchNearby(map, map.center);
   }
 
+  // usa a função HandleOpenModal com o nome onClickMarker em Home para se mostrar no Modal as informação do marcador clicado
   function clickMarkerShowInfo(restaurant) {
     onClickMarker(restaurant);
     getRestaurantById(restaurant.place_id);

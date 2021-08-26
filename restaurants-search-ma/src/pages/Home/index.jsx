@@ -97,7 +97,7 @@ const Home = () => {
         placeId={placeId}
         containerStyle={MapContainerStyles}
         styles={InnerMapStyles}
-        onClickMarker={handleOpenModal}
+        onClickMarker={handleOpenModal} // passa a função handleOpenModal para ser utilizada dentro do arquivo onde está Map
       />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
         {restaurantSelected ? (
