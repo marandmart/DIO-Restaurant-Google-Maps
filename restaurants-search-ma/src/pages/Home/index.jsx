@@ -97,6 +97,7 @@ const Home = () => {
         placeId={placeId}
         containerStyle={MapContainerStyles}
         styles={InnerMapStyles}
+        onClickMarker={handleOpenModal}
       />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
         {restaurantSelected ? (

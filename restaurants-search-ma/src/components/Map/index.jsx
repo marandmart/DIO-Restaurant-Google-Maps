@@ -11,7 +11,7 @@ export const MapContainer = (props) => {
   const { restaurants } = useSelector((state) => state.restaurants);
   const [map, setMap] = useState(null);
   // as funções das bibliotecas places e maps api
-  const { google, query, placeId, containerStyle, styles } = props;
+  const { google, query, placeId, containerStyle, styles, onClickMarker } = props;
 
   // utilizado para quando houver mudança na query, re-renderizar o map com busca baseada na query
   useEffect(() => {
@@ -99,6 +99,11 @@ export const MapContainer = (props) => {
     searchNearby(map, map.center);
   }
 
+  function clickMarkerShowInfo(restaurant) {
+    onClickMarker(restaurant);
+    getRestaurantById(restaurant.place_id);
+  }
+
   // a propriedade google faz com que o conteúdo renderize no mapa. Pega as funções, a APIkey, etc
   // e centerAroundCurrentLocation faz com que o mapa carregue aproximadade próximo do local onde o usuário estiver localizado
 
@@ -116,6 +121,7 @@ export const MapContainer = (props) => {
         <Marker
           key={restaurant.place_id}
           name={restaurant.name}
+          onClick={() => clickMarkerShowInfo(restaurant)}
           position={{
             lat: restaurant.geometry.location.lat(),
             lng: restaurant.geometry.location.lng(),
