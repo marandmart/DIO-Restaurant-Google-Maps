@@ -11,7 +11,7 @@ export const MapContainer = (props) => {
   const { restaurants } = useSelector((state) => state.restaurants);
   const [map, setMap] = useState(null);
   // as funções das bibliotecas places e maps api
-  const { google, query, placeId } = props;
+  const { google, query, placeId, containerStyle, styles } = props;
 
   // utilizado para quando houver mudança na query, re-renderizar o map com busca baseada na query
   useEffect(() => {
@@ -105,6 +105,8 @@ export const MapContainer = (props) => {
   return (
     <Map
       google={google}
+      styles={styles}
+      containerStyle={containerStyle}
       centerAroundCurrentLocation
       onReady={onMapReady}
       onRecenter={onMapReady}

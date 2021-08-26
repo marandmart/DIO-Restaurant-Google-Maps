@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import Slider from 'react-slick';
 import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 
@@ -16,6 +15,8 @@ import {
   CarouselTitle,
   ModalTitle,
   ModalContent,
+  MapContainerStyles,
+  InnerMapStyles,
 } from './styles';
 
 /* eslint-disable */
@@ -27,6 +28,7 @@ const Home = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const { restaurants, restaurantSelected } = useSelector((state) => state.restaurants); // mesmo processo que em Map
 
+  // ajustes passados para o Carousel para configurar funcionamento do componente
   const settings = {
     dots: false,
     infinite: true,
@@ -90,7 +92,12 @@ const Home = () => {
           />
         ))}
       </Container>
-      <Map query={query} placeId={placeId} />
+      <Map
+        query={query}
+        placeId={placeId}
+        containerStyle={MapContainerStyles}
+        styles={InnerMapStyles}
+      />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
         {restaurantSelected ? (
           <>

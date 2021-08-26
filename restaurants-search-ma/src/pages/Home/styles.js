@@ -17,6 +17,17 @@ export const Container = styled.aside`
   overflow-x: hidden;
 `;
 
+// Características de estilo do mapa. Os 400px abaixo são referentes ao width do Container
+export const MapContainerStyles = {
+  width: 'calc(100% - 400px)',
+  height: '100%',
+};
+
+export const InnerMapStyles = {
+  width: '100%',
+  height: '100%',
+};
+
 // Estilos para a região onde ficam a imagem e o campo de pesquisa
 export const Search = styled.section`
   display: flex;
